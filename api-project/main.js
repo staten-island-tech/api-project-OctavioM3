@@ -1,4 +1,4 @@
-const URL = `https://stats.nba.com/random`
+const URL = `https://stats.nba.com/playercareerstats`
 
 async function getData(URL){
   try {
