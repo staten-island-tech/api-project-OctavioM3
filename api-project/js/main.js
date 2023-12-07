@@ -4,7 +4,7 @@ async function getData(URL){
   try {
     const response = await fetch(URL);
     if (response.status != 200) {
-      throw new Error(response.statusText);
+      throw new error(response.statusText);
     }
     console.log(response);
     const data = await response.json();
