@@ -1,4 +1,4 @@
-const URL = `https://botw-compendium.herokuapp.com/api/v3/compendium/all`
+const URL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment`
 
 async function getData(URL){
   try {
@@ -9,6 +9,8 @@ async function getData(URL){
     console.log(response);
     const data = await response.json();
     console.log(data);
+    data.data.forEach((item) => console.log(item))
+    data.data.forEach((item) => document.querySelector("h1").insertAdjacentHTML("beforeend", ))
   } catch (error) {
     document.querySelector("h1").textContent = error
   }
