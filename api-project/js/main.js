@@ -10,9 +10,8 @@ async function getData(URL){
     const data = await response.json();
     console.log(data);
     data.data.forEach((item) => console.log(item))
-    data.data.forEach((item) => document.querySelector("h1").insertAdjacentHTML("beforeend", ))
   } catch (error) {
-    document.querySelector("h1").textContent = error
+    document.querySelector("h2").textContent = error
   }
 }
 
