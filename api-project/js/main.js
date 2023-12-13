@@ -11,14 +11,19 @@ async function getData(URL){
     const data = await response.json();
     console.log(data);
     data.data.forEach((item) => console.log(item))
-    data.name.forEach((item) => ItemCard(item));
   } catch (error) {
     document.querySelector("h2").textContent = error
   }
 }
 
-function ItemCard(data) {
+getData(URL);
+
+function ItemCard() {
   DOMSelectors.ItemBox.insertAdjacentHTML("beforeend", `<div id="ItemBox"> <h2> ${data.name} <h2> </div>`)
 }
 
-getData(URL);
+const CreateItem = async () => {
+  const equipment = await getData(URL);
+  DOMSelectors.ItemName.innerHTML = `Equipment: ${equipment.data.name}`;
+};
+CreateItem();
