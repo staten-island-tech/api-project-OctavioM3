@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-const URL = `https://stats.nba.com/stats/playerprofile`
-
-async function getData(URL){
-    const response = await fetch(URL);
-    console.log(response);
-}
-getData(URL)
-=======
 const URL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment`
 import { DOMSelectors } from "./dom";
 
@@ -36,4 +27,3 @@ const CreateItem = async () => {
   DOMSelectors.ItemName.innerHTML = `Equipment: ${equipment.data.name}`;
 };
 CreateItem();
->>>>>>> 608f9d0a45b815b29fc6859094499322bb07247d
