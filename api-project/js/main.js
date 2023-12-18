@@ -10,7 +10,6 @@ async function getData(URL){
     console.log(response);
     const data = await response.json();
     console.log(data);
-    data.data.forEach((item) => console.log(item))
   } catch (error) {
     document.querySelector("h2").textContent = error
   }
@@ -18,12 +17,8 @@ async function getData(URL){
 
 getData(URL);
 
-function ItemCard() {
-  DOMSelectors.ItemBox.insertAdjacentHTML("beforeend", `<div id="ItemBox"> <h2> ${data.name} <h2> </div>`)
-}
-
-const CreateItem = async () => {
+const putEqupimentInHTML = async () => {
   const equipment = await getData(URL);
-  DOMSelectors.ItemName.innerHTML = `Equipment: ${equipment.data.name}`;
+  DOMSelectors.ItemName = `Equipment: ${equipment.data.name}`;
 };
-CreateItem();
+putEqupimentInHTML();
