@@ -18,7 +18,7 @@ async function getData(URL){
 getData(URL);
 
 const putEqupimentInHTML = async () => {
-  const equipment = await getData(URL);
-  DOMSelectors.ItemName = `Equipment: ${equipment.data.name}`;
+  const data = await getData(URL);
+  data.data.forEach((data) => console.log(data));
 };
 putEqupimentInHTML();
