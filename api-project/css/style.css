@@ -1,0 +1,11 @@
+#Itembox {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.ItemCard {
+    width: 30%;
+    text-align: center;
+    align-items: center;
+}

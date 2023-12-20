@@ -1,5 +1,8 @@
-const URL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment`
+import "../css/style.css";
 import { DOMSelectors } from "./dom";
+const URL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment`
+const response = await fetch(URL);
+const data = await response.json();
 
 async function getData(URL){
   try {
@@ -17,8 +20,10 @@ async function getData(URL){
 
 getData(URL);
 
-const putEqupimentInHTML = async () => {
-  const data = await getData(URL);
-  data.data.forEach((data) => console.log(data));
+function inputName() {
+  data.data.forEach((data) => DOMSelectors.ItemBox.insertAdjacentHTML(
+  "beforeend",
+  `<div class="ItemCard"><h2 id="Name"> ${data.name} </h2><img src="${data.image}" alt="${data.name}" class="Cardimg"></img></div>`));
 };
-putEqupimentInHTML();
+
+inputName(URL)
