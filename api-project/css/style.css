@@ -1,3 +1,9 @@
+:root {
+    --black: black;
+    --antique-white: antiquewhite;
+    --primary: var(--black);
+    --secondary: var(--antique-white)
+}
 #Itembox {
     display: flex;
     justify-content: space-evenly;
@@ -8,4 +14,8 @@
     width: 30%;
     text-align: center;
     align-items: center;
+}
+body {
+    background-color: var(--primary);
+    color: var(--secondary)
 }

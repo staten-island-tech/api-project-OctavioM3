@@ -20,10 +20,19 @@ async function getData(URL){
 
 getData(URL);
 
+DOMSelectors.EquipmentBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  clearall();
+  inputName();
+});
+
+function clearall() {
+  const ItemCard = document.querySelectorAll(".ItemCard");
+  ItemCard.forEach((card) => card.remove());
+}
+
 function inputName() {
   data.data.forEach((data) => DOMSelectors.ItemBox.insertAdjacentHTML(
   "beforeend",
   `<div class="ItemCard"><h2 id="Name"> ${data.name} </h2><img src="${data.image}" alt="${data.name}" class="Cardimg"></img></div>`));
 };
-
-inputName(URL)
