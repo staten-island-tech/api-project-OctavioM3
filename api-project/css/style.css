@@ -19,3 +19,6 @@ body {
     background-color: var(--primary);
     color: var(--secondary)
 }
+.buttons {
+    text-align: center;
+}
