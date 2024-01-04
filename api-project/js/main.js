@@ -1,18 +1,18 @@
 import "../css/style.css";
 import { DOMSelectors } from "./dom";
-const URL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment`
-const secURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters`
-const response = await fetch(URL);
-const secresponse = await fetch(secURL);
+const EquipmentURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment`
+const MonsterURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters`
+const response = await fetch(EquipmentURL);
+const secresponse = await fetch(MonsterURL);
 const data = await response.json();
 const mondata = await secresponse.json()
 
-async function getData(URL, secURL){
+async function getData(EquipmentURL, MonsterURL){
   try {
-    const response = await fetch(URL);
-    const secresponse = await fetch(secURL);
-    if (response.status != 200) {
-      throw new error(response.statusText);
+    const response = await fetch(EquipmentURL);
+    const secresponse = await fetch(MonsterURL);
+    if (response.status != 200, secresponse.status != 200) {
+      throw new error(response.statusText, secresponse.statusText);
     }
     console.log(response);
     const data = await response.json();
@@ -25,7 +25,7 @@ async function getData(URL, secURL){
   }
 }
 
-getData(URL, secURL);
+getData(EquipmentURL, MonsterURL);
 
 DOMSelectors.EquipmentBtn.addEventListener("click", function (event) {
   event.preventDefault();
