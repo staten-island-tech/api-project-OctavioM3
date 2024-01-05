@@ -3,6 +3,7 @@ const DOMSelectors = {
     ItemName: document.getElementById("Name"),
     EquipmentBtn: document.getElementById("equipment-button"),
     MonsterBtn: document.getElementById("monster-button"),
+    MaterialBtn: document.getElementById("material-button"),
 };
 
 export {DOMSelectors};

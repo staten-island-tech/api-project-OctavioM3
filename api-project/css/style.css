@@ -1,8 +1,10 @@
 :root {
     --black: black;
     --antique-white: antiquewhite;
+    --blue: blue;
     --primary: var(--black);
-    --secondary: var(--antique-white)
+    --secondary: var(--blue);
+    --third: var(--antique-white);
 }
 #Itembox {
     display: flex;
@@ -14,10 +16,14 @@
     width: 30%;
     text-align: center;
     align-items: center;
+    background-color: var(--third);
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 body {
     background-color: var(--primary);
-    color: var(--secondary)
+    color: var(--secondary);
+    text-align: center;
 }
 .buttons {
     text-align: center;
