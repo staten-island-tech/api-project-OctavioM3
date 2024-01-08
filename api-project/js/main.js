@@ -36,7 +36,7 @@ async function getData(EquipmentURL, MonsterURL, MaterialURL){
 getData(EquipmentURL, MonsterURL, MaterialURL);
 
 
-/*
+
 DOMSelectors.EquipmentBtn.addEventListener("click", function (event) {
   event.preventDefault();
   clearall();
@@ -54,7 +54,7 @@ DOMSelectors.MaterialBtn.addEventListener("click", function(event) {
   clearall();
   inputMaterials();
 });
-*/
+
 function clearall() {
   const ItemCard = document.querySelectorAll(".ItemCard");
   ItemCard.forEach((card) => card.remove());
@@ -78,14 +78,8 @@ function inputMaterials() {
     "beforeend",
     `<div class="ItemCard"><h2 id="Name"> ${materialdata.name} </h2><img src="${materialdata.image}" alt="${materialdata.name}" class="Cardimg"></img><p class="description">${materialdata.description}</p> <p class="location">${materialdata.common_locations}</p></div>`));
   };
-
+/*
   function ButtonChange (data, mondata, materialdata) {
- let buttons = document.querySelectorAll(".btn")
- buttons.forEach((btn) => btn.addEventListener("click", function() {
-  let type = btn.textContent
-  let newArr = data.filter((data) => data.class.includes(type))
-  DOMSelectors.ItemCard.innerHTML = ""
-  ButtonChange(newArr)
- }))}
+let buttons = document.querySelectorAll(".btn")
 
-ButtonChange(data, mondata, materialdata);
+  }*/
