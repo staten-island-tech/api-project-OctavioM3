@@ -1,14 +1,14 @@
 import "../css/style.css";
 import { DOMSelectors } from "./dom";
 const EquipmentURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment`;
+const response = getData(response);
+const data = getData(data);
 const MonsterURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters`;
+const secresponse = getData(secresponse);
+const mondata = getData(mondata);
 const MaterialURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/materials`;
-const response = await fetch(EquipmentURL);
-const secresponse = fetch(MonsterURL);
-const thirdresponse = fetch(MaterialURL);
-const data = response.json();
-const mondata = secresponse.json();
-const materialdata = thirdresponse.json();
+const thirdresponse = getData(thirdresponse);
+const materialdata = getData(materialdata);
 
 async function getData(EquipmentURL, MonsterURL, MaterialURL) {
   try {
