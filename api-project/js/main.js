@@ -21,7 +21,7 @@ async function getData() {
         response.statusText,
         secresponse.statusText,
         thirdresponse.statusText,
-        fourthresponse.statusText,
+        fourthresponse.statusText
       );
     }
     /*
@@ -32,9 +32,13 @@ async function getData() {
     const materialdata = await thirdresponse.json();
     console.log(materialdata);
     */
-   const data = await fourthresponse.json()
-   data.data.forEach((data) => DOMSelectors.ItemBox.insertAdjacentHTML("beforeend",
-   `<div class="ItemCard"><h2 id="Name"> ${data.name} </h2><img src="${data.image}" alt="a picture of ${data.name}" class="Cardimg"></img><p class="description">${data.description}</p></div>`))
+    const data = await fourthresponse.json();
+    data.data.forEach((data) =>
+      DOMSelectors.ItemBox.insertAdjacentHTML(
+        "beforeend",
+        `<div class="ItemCard"><h2 id="Name"> ${data.name} </h2><img src="${data.image}" alt="a picture of ${data.name}" class="Cardimg"></img><p class="description">${data.description}</p></div>`
+      )
+    );
   } catch (error) {
     document.querySelector("h1").textContent = error;
   }
@@ -107,8 +111,12 @@ async function inputMaterials() {
 async function inputAll() {
   const dataresponse = await fetch(AllURL);
   const data = await dataresponse.json();
-  data.data.forEach((data) => DOMSelectors.ItemBox.insertAdjacentHTML("beforeend",
-  `<div class="ItemCard"><h2 id="Name"> ${data.name} </h2><img src="${data.image}" alt="a picture of ${data.name}" class="Cardimg"></img><p class="description">${data.description}</p></div>`));
+  data.data.forEach((data) =>
+    DOMSelectors.ItemBox.insertAdjacentHTML(
+      "beforeend",
+      `<div class="ItemCard"><h2 id="Name"> ${data.name} </h2><img src="${data.image}" alt="a picture of ${data.name}" class="Cardimg"></img><p class="description">${data.description}</p></div>`
+    )
+  );
 }
 /*
   function ButtonChange (data, mondata, materialdata) {
