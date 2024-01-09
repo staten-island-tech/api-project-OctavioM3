@@ -1,16 +1,10 @@
 import "../css/style.css";
 import { DOMSelectors } from "./dom";
 const EquipmentURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/equipment`;
-const response = getData(response);
-const data = getData(data);
 const MonsterURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters`;
-const secresponse = getData(secresponse);
-const mondata = getData(mondata);
 const MaterialURL = `https://botw-compendium.herokuapp.com/api/v3/compendium/category/materials`;
-const thirdresponse = getData(thirdresponse);
-const materialdata = getData(materialdata);
 
-async function getData(EquipmentURL, MonsterURL, MaterialURL) {
+async function getData() {
   try {
     const response = await fetch(EquipmentURL);
     const secresponse = await fetch(MonsterURL);
@@ -26,26 +20,25 @@ async function getData(EquipmentURL, MonsterURL, MaterialURL) {
         thirdresponse.statusText
       );
     }
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
-    console.log(secresponse);
+    /*
+    const equipdata = await response.json();
+    console.log(equipdata);
     const mondata = await secresponse.json();
     console.log(mondata);
-    console.log(thirdresponse);
     const materialdata = await thirdresponse.json();
     console.log(materialdata);
+    */
   } catch (error) {
     document.querySelector("h2").textContent = error;
   }
 }
 
-getData(EquipmentURL, MonsterURL, MaterialURL);
+getData();
 
 DOMSelectors.EquipmentBtn.addEventListener("click", function (event) {
   event.preventDefault();
   clearall();
-  inputName();
+  inputEquipment();
 });
 
 DOMSelectors.MonsterBtn.addEventListener("click", function (event) {
@@ -65,8 +58,10 @@ function clearall() {
   ItemCard.forEach((card) => card.remove());
 }
 
-function inputName() {
-  data.data.forEach((data) =>
+async function inputEquipment() {
+  const equipmentdata = await fetch(EquipmentURL);
+  const equipment = await equipmentdata.json();
+  equipment.data.forEach((data) =>
     DOMSelectors.ItemBox.insertAdjacentHTML(
       "beforeend",
       `<div class="ItemCard"><h2 id="Name"> ${data.name} </h2><img src="${data.image}" alt="${data.name}" class="Cardimg"></img><p class="description">${data.description}</p></div>`
@@ -74,8 +69,10 @@ function inputName() {
   );
 }
 
-function inputMonsters() {
-  mondata.data.forEach((mondata) =>
+async function inputMonsters() {
+  const monsterdata = await fetch(MonsterURL);
+  const monster = await monsterdata.json();
+  monster.data.forEach((mondata) =>
     DOMSelectors.ItemBox.insertAdjacentHTML(
       "beforeend",
       `<div class="ItemCard"><h2 id="Name"> ${mondata.name} </h2><img src="${mondata.image}" alt="${mondata.name}" class="Cardimg"></img><p class="description">${mondata.description}</P> <p class="drops">Drops: ${mondata.drops}</p></div>`
@@ -83,8 +80,10 @@ function inputMonsters() {
   );
 }
 
-function inputMaterials() {
-  materialdata.data.forEach((materialdata) =>
+async function inputMaterials() {
+  const materialdata = await fetch(MaterialURL);
+  const material = await materialdata.json();
+  material.data.forEach((materialdata) =>
     DOMSelectors.ItemBox.insertAdjacentHTML(
       "beforeend",
       `<div class="ItemCard"><h2 id="Name"> ${materialdata.name} </h2><img src="${materialdata.image}" alt="${materialdata.name}" class="Cardimg"></img><p class="description">${materialdata.description}</p> <p class="location">${materialdata.common_locations}</p></div>`
