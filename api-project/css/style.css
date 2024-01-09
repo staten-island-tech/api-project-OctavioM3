@@ -1,10 +1,12 @@
 :root {
     --black: black;
     --antique-white: antiquewhite;
+    --light-blue: rgb(0, 251, 255);
     --blue: blue;
     --primary: var(--black);
-    --secondary: var(--blue);
+    --secondary: var(--light-blue);
     --third: var(--antique-white);
+    --fourth: var(--blue);
 }
 #Itembox {
     display: flex;
@@ -19,6 +21,7 @@
     background-color: var(--third);
     margin-top: 5%;
     margin-bottom: 5%;
+    color: var(--fourth)
 }
 body {
     background-color: var(--primary);

@@ -4,6 +4,7 @@ const DOMSelectors = {
     EquipmentBtn: document.getElementById("equipment-button"),
     MonsterBtn: document.getElementById("monster-button"),
     MaterialBtn: document.getElementById("material-button"),
+    AllBtn: document.getElementById("all-button"),
 };
 
 export {DOMSelectors};
